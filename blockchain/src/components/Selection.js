@@ -6,19 +6,19 @@ import Carousel from "./Carousel";
 export default function App() {
   return (
     <div className="main screen">
-      <Carousel/>
+      <Carousel />
       <div className="carousel-padding header">Welcome to the Dungeon Crawler</div>
       <div className="selection">
         <div
           className="select-story"
           onClick={() => {
-            history.push("/HeroBooth");
+            history.push("/TheExchange");
             history.go(0);
           }}
         >
           <h4 className="text-header">Swap ETH/BADGER</h4>
-          <img className="dashboard-card-image" src="https://ipfs.io/ipfs/Qme7QyNBX1Q997Fp1bin8JK9KCpk5hyauae35Aosfp2VxV?filename=Angel.png" 
-          alt="Angel"  />
+          <img className="dashboard-card-image" src="https://ipfs.io/ipfs/Qme7QyNBX1Q997Fp1bin8JK9KCpk5hyauae35Aosfp2VxV?filename=Angel.png"
+            alt="Angel" />
         </div>
         {/* <div
           className="select-story"
@@ -39,8 +39,8 @@ export default function App() {
           }}
         >
           <h4 className="text-header">Go to your Inventory</h4>
-          <img className="dashboard-card-image" src="https://ipfs.io/ipfs/QmccVpftx3x3W7GxTQGkJjXS6VyJCpgDgHagkAoJCsLnXM?filename=home.png" 
-          alt="home"  />
+          <img className="dashboard-card-image" src="https://ipfs.io/ipfs/QmccVpftx3x3W7GxTQGkJjXS6VyJCpgDgHagkAoJCsLnXM?filename=home.png"
+            alt="home" />
         </div>
       </div>
     </div>
