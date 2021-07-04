@@ -4,6 +4,7 @@
   "description": "An Ethereum Marketplace",
   "author": "gregory@dappuniversity.com",
   "dependencies": {
+    "@brainhubeu/react-carousel": "^2.0.4",
     "@chainlink/contracts": "^0.1.6",
     "@openzeppelin/contracts": "^3.4.1",
     "@truffle/hdwallet-provider": "1.0.40",
