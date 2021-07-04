@@ -2,8 +2,16 @@
 import React, { Component } from 'react'
 import tokenLogo from '../../assets/badger_dao_logo.jpg'
 import ethLogo from '../../assets/eth-logo.png'
-
+import history from '../../history'
 import './SwapExchange.css'
+
+const backArrowStyle = {
+  fill: "white",
+  position: "absolute",
+  top: "1em",
+  left: "2em",
+  fontSize: "2em"
+}
 
 class SwapExchange extends Component {
   constructor(props) {
@@ -16,6 +24,10 @@ class SwapExchange extends Component {
   render() {
     return (
       <article id="SwapExchange">
+        {/* <ArrowBackIcon style={backArrowStyle} /> */}
+        <h3 id="back" onClick={() => {
+          history.go(-1)
+        }}>Back to selection menu</h3>
         <div className="swapInfo">
           <h1 className="mb-3">Swap Ether with Badger</h1>
         </div>
@@ -92,7 +104,7 @@ class SwapExchange extends Component {
           </div>
 
         </section>
-      </article>
+      </article >
     );
   }
 }
