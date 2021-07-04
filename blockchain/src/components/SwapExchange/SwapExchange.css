@@ -12,3 +12,13 @@
 #WidgetContainer {
     width:500px
 }
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #E3B23C !important;
+}
+
+.swapInfo {
+    color:white;
+    font-size: 4rem;
+    margin-right:3em;
+}

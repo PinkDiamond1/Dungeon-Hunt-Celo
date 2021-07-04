@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import tokenLogo from '../../assets/token-logo.png'
+import tokenLogo from '../../assets/badger_dao_logo.jpg'
 import ethLogo from '../../assets/eth-logo.png'
 
 import './SwapExchange.css'
@@ -16,6 +16,9 @@ class SwapExchange extends Component {
   render() {
     return (
       <article id="SwapExchange">
+        <div className="swapInfo">
+          <h1 className="mb-3">Swap Ether with Badger</h1>
+        </div>
         <section id="WidgetContainer">
           <div className="card mb-4" >
 
@@ -72,14 +75,14 @@ class SwapExchange extends Component {
                   />
                   <div className="input-group-append">
                     <div className="input-group-text">
-                      <img src={tokenLogo} height='32' alt="" />
-                      &nbsp; DApp
+                      <img src={tokenLogo} height='32' alt="" style={{ borderRadius: "50px" }} />
+                      &nbsp; Badger
                     </div>
                   </div>
                 </div>
                 <div className="mb-5">
                   <span className="float-left text-muted">Exchange Rate</span>
-                  <span className="float-right text-muted">1 ETH = 100 DApp</span>
+                  <span className="float-right text-muted">1 ETH = 100 Badger</span>
                 </div>
                 <button type="submit" className="btn btn-primary btn-block btn-lg">SWAP!</button>
               </form>
