@@ -1,11 +1,13 @@
-const HDWalletProvider = require('@truffle/hdwallet-provider');
+
 require('dotenv').config();
+const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require("web3");
 // require('babel-polyfill');
 // require('babel-register');
 
-const mnemonic = process.env.MNEMONIC
+//const mnemonic = process.env.MNEMONIC
 const PRIVATE_KEY = process.env.PRIVATE_KEY
+console.log('PRIVATE_KEY', PRIVATE_KEY);
 const Url = process.env.RPC_URL
 
 module.exports = {
@@ -35,10 +37,10 @@ module.exports = {
   contracts_build_directory: './src/abis/',
   compilers: {
     solc: {
-      version: "0.6.12",
+      version: '0.8.0+commit.c7dfd78e',
       optimizer: {
         enabled: true,
-        runs: 1
+        runs: 200
       }
     }
   },
