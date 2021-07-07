@@ -48,6 +48,7 @@ We have used the following technologies for this project:
 * [IPFS](https://orbitdb.org/) (https://ipfs.io/)
 * [PhaserJS](https://phaser.io/) (Phaser is a 2D game framework used for making HTML5 games for desktop and mobile)
 * [ReactJS](https://reactjs.org/) (web UI)
+* [OpenZeppelin Contracts](https://openzeppelin.com/contracts/) (OpenZeppelin ERC-20 and ERC-721 standards)
 
 ## Getting Started
 
