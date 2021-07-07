@@ -47,7 +47,8 @@ Defeat enemies, collect Collect $BADGER and Govern using $BADGER
 Some features have been mentioned on under the rules. We are working on state/progress management and adding a DAO in game for governance in game
 
 ## Inspirations
-Inspired by Dungeon Games played by most Geeks and gamers. We were also inspired by the idea that we could swap Rinkeby ETH for BADGER(governance token) using swap/DEX like 1INCH, Uniswap within the game. We aim to establish a DAO to govern the game, distribute rewards to contributors of the game like Artists/game creators using $BADGER
+Inspired by Dungeon Games played by most Geeks and gamers. We were also inspired by the idea that we could swap Rinkeby ETH for BADGER(governance token) using swap/DEX like 1INCH, Uniswap within the game. We aim to establish a DAO to govern the game, distribute rewards to contributors of the game like Artists/game creators using $BADGER.
+We are big fans of RPG games on ETHEREUM like [First Blood](https://www.firstblood.io/?utm_source=StateOfTheDApps) and many more. We are working on more asstes and more levels to it..
  
  **A lot more to come!**
 
