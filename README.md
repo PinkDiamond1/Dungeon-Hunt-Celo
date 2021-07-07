@@ -3,13 +3,13 @@
 
 <p align="center">
   <a href="https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt">
-    <img src="" alt="Logo" width="480" height="240">
+    <img src="./blockchain/src/assets/FRAME1.png" alt="Logo" width="480" height="240">
   </a>
   <h6>Built at Gitcoin Grants Round 10: Game Jam by BadgerFinance</h6>
-  <img src="" alt="Logo" width="120" height="120">
+  <img src="./blockchain/src/assets/FRAME2.png" alt="Logo" width="570" height="162">
   </p>
   
-  <p align="center"><a href="https://www.youtube.com/watch?v=skJes2cwNTI">Watch Demo Video on YouTube</a></p>
+  <p align="center"><a href="">Watch Demo Video on YouTube</a></p>
 
 ## 
 
@@ -48,6 +48,7 @@ We have used the following technologies for this project:
 * [IPFS](https://orbitdb.org/) (https://ipfs.io/)
 * [PhaserJS](https://phaser.io/) (Phaser is a 2D game framework used for making HTML5 games for desktop and mobile)
 * [ReactJS](https://reactjs.org/) (web UI)
+* [OpenZeppelin Contracts](https://openzeppelin.com/contracts/) (OpenZeppelin ERC-20 and ERC-721 standards)
 
 ## Getting Started
 
