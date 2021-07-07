@@ -2,14 +2,14 @@
 <h1 align="center">BADGER DUNGEON HUNT</h1>
 
 <p align="center">
-  <a href="https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt">
+  <a href="https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt/blob/main/blockchain/src/assets/FRAME1.png">
     <img src="" alt="Logo" width="480" height="240">
   </a>
   <h6>Built at Gitcoin Grants Round 10: Game Jam by BadgerFinance</h6>
-  <img src="" alt="Logo" width="120" height="120">
+  <img src="./blockchain/src/assets/FRAME2.png" alt="Logo" width="120" height="120">
   </p>
   
-  <p align="center"><a href="https://www.youtube.com/watch?v=skJes2cwNTI">Watch Demo Video on YouTube</a></p>
+  <p align="center"><a href="">Watch Demo Video on YouTube</a></p>
 
 ## 
 
