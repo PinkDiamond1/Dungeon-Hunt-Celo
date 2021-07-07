@@ -33,10 +33,21 @@
  **A lot more to come!**
 
 ## Architecture
+#### Selection Screen
+![Selection sceen](https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt/blob/main/blockchain/src/assets/gitcoin1.png)
+#### Swap Rinkeby $ETH for $BADGER
+![Flow of Build of Network](https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt/blob/main/blockchain/src/assets/gitcoin2.png)
+#### Shop and Upgrade portions, weapons, armory at DUNGEON BADGER STORE 
+![Store](https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt/blob/main/blockchain/src/assets/gitcoin3.png)
+#### NFT INVENTORY
+![NFT](https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt/blob/main/blockchain/src/assets/gitcoin4.png)
+#### KILL the ENEMY
+![GAMEPLAY1](https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt/blob/main/blockchain/src/assets/gitcoin6.png)
+#### COLLECT $BADGER from the CHESTS IN GAME
+![GAMEPLAY2](https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt/blob/main/blockchain/src/assets/gitcoin8.png)
+#### GET TO THE LINK TOKEN GATE TO GET AN NFT LEVEL PASS
+![GAMEPLAY3](https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt/blob/main/blockchain/src/assets/gitcoin9.png)
 
-![Flow of Control]()
-![Flow of Build of Network]()
-![Dataset Info]()
 
 ### Built With
 We have used the following technologies for this project:
@@ -64,6 +75,19 @@ Start the game
 
 For the dApp
 `https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt && cd blockchain && npm i && npm start`
+
+ Enter your API in `.env` inside 
+BadgerFinance-Gitcoin-Dungeon-Hunt/blockchain/ folder
+
+   ```JS
+   ETHERSCAN_API_KEY="Your ETHERSCAN API KEY"
+   RPC_URL="https://rinkeby.infura.io/v3/{YOUR RINKEBY API KEY}"
+   MNEMONIC="Seed phrase of your metamask wallet"
+   SKIP_PREFLIGHT_CHECK=true
+   PRIVATE_KEY="Enter exported private key of your ethereum wallet metamask"
+   ```
+   
+   NOTE: **NEVER SHARE YOUR API KEYS AND PRIVATE KEYS**
 
 Once you are in the project directory install the required dependencies using a package manager `yarn` or `npm`.
 
