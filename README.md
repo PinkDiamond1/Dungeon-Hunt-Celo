@@ -76,6 +76,19 @@ Start the game
 For the dApp
 `https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt && cd blockchain && npm i && npm start`
 
+ Enter your API in `.env` inside 
+BadgerFinance-Gitcoin-Dungeon-Hunt/blockchain/ folder
+
+   ```JS
+   ETHERSCAN_API_KEY="Your ETHERSCAN API KEY"
+   RPC_URL="https://rinkeby.infura.io/v3/{YOUR RINKEBY API KEY}"
+   MNEMONIC="Seed phrase of your metamask wallet"
+   SKIP_PREFLIGHT_CHECK=true
+   PRIVATE_KEY="Enter exported private key of your ethereum wallet metamask"
+   ```
+   
+   NOTE: **NEVER SHARE YOUR API KEYS AND PRIVATE KEYS**
+
 Once you are in the project directory install the required dependencies using a package manager `yarn` or `npm`.
 
 `yarn add` or `npm install`
