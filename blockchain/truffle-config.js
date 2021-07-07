@@ -2,8 +2,8 @@
 require('dotenv').config();
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require("web3");
-// require('babel-polyfill');
-// require('babel-register');
+require('babel-polyfill');
+require('babel-register');
 
 //const mnemonic = process.env.MNEMONIC
 const PRIVATE_KEY = process.env.PRIVATE_KEY
