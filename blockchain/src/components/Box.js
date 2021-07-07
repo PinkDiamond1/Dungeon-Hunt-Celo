@@ -3,7 +3,7 @@ import { Image, Button } from 'react-bootstrap'
 import { BsHeart } from "react-icons/bs";
 import {FiThumbsUp} from 'react-icons/fi';
 
-export default function Box({name,img,walletAddress}) {
+export default function Box({name,img,level, price}) {
 
   // function handleUpvote(){
   //       const requestOptions = {
@@ -32,19 +32,23 @@ export default function Box({name,img,walletAddress}) {
   //           console.error("There was an error!", error);
   //         });
   // }
-       const handleUpvote = async () => {
-         const response = await fetch(
-           `https://dungeon-crawler-1.herokuapp.com/v1/character/vote/?characName=${name}&walletAddress=0x1234556`
-         );
-         const data = await response.json();
-         console.log(data);
-       };
+      //  const handleUpvote = async () => {
+      //    const response = await fetch(
+      //      `https://dungeon-crawler-1.herokuapp.com/v1/character/vote/?characName=${name}&walletAddress=0x1234556`
+      //    );
+      //    const data = await response.json();
+      //    console.log(data);
+      //  };
     return (
       <div className="action-cards">
         <div className="card-owner-like">
           <div className="text-header1">
             {" "}
-            Submitted by: <span className="name-artist">{name}</span>{" "}
+            Item: <span className="name-artist">{name}</span>{" "}
+          </div>
+          <div className="text-header1">
+            {" "}
+            Level: <span className="name-artist">{level}</span>{" "}
           </div>
           <img src="https://ipfs.io/ipfs/QmWV3Z5fgJyQSTh4ibe3p6V2nydyL6pjeqAZTU4ZDL4f1t?filename=like-outlined.svg"
            className="like-button" alt="like" />
@@ -62,16 +66,12 @@ export default function Box({name,img,walletAddress}) {
           />
         </div>
         <div className="imageDetails">
-          {/* <div className="d-flex flex-row-reverse">
-            <Button variant="primary">
-              <span className="outline text-header1">Vote</span> <FiThumbsUp />
-            </Button>
-            
-          </div> */}
-          <div onClick={handleUpvote} className="upvote">
+          
+          <div className="upvote">
             <a href="#">
-              <img src="https://ipfs.io/ipfs/Qmbvgv6YqyTeopjdutCKohrEMxL4Dmd3xpbjpUDAN4Axdj?filename=upvote.svg" 
-              alt="Upvote Button" />
+              {price}
+              {/* <img src="https://ipfs.io/ipfs/Qmbvgv6YqyTeopjdutCKohrEMxL4Dmd3xpbjpUDAN4Axdj?filename=upvote.svg" 
+              alt="Upvote Button" /> */}
             </a>
           </div>
         </div>
