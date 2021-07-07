@@ -21,7 +21,14 @@
     <a href="https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt/issues">Request Feature</a>
   </p>
 
-##  Features
+## Summary
+RPG game built with Phaser that works with Ethereum Rinkeby Blockchain using Smart contracts. Deposit $BADGER to play game by swapping $BADGER/$ETH . Kill all enemies guarding the chests and collect $BADGER from Chests and get to the $LINK token Gate to collect NFT as a level pass. Shop weaponry and armory at the Badger Store and equip your hero. Enjoy the season of the Badger! NEW LEVELS COMING SOON!
+
+## Concept Art
+BADGER DUNGEON HUNT WORKFLOW:
+![Architecture](https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt/blob/main/blockchain/src/assets/final%20architecture.png)
+
+##  Game Rules
 
 <p> ✔️ Deposit $BADGER to play the game. If you don't have badger, Swap Rinkeby $ETH with $BADGER from the ETH/BADGER swap.</p>
 <p> ✔️ Play the game to battle demons, monsters and guards and collect chests to claim our custom ERC-20 $BADGER token! Kill all enemies and Get to the token gate to collect a $LINK token and obtain the level pass to the next level </p>
@@ -29,13 +36,20 @@
 <p> ✔️ Use the $BADGER tokens earned in the game to buy game items, portions, and weaponry from the BADGER SHOP. We are working on upgrading the avatar by equipping it with the purchased features  </p>
 <p> ✔️ New levels are being added and coming to the game soon! </p>
 <p> ✔️ <b>Governance</b> using custom $BADGER token by rewarding game asset creators/artists for the open contribution inside the game in our DAO, coming soon! </p>
+
+## Objectives 
+Defeat enemies, collect Collect $BADGER and Govern using $BADGER
+
+## Key Features
+Some features have been mentioned on under the rules. We are working on state/progress management and adding a DAO in game for governance in game
+
+## Inspirations
+Inspired by Dungeon Games played by most Geeks and gamers. We were also inspired by the idea that we could swap Rinkeby ETH for BADGER(governance token) using swap/DEX like 1INCH, Uniswap within the game. We aim to establish a DAO to govern the game, distribute rewards to contributors of the game like Artists/game creators using $BADGER
  
  **A lot more to come!**
 
-## Architecture
-BADGER DUNGEON HUNT WORKFLOW:
-![Architecture](https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt/blob/main/blockchain/src/assets/final%20architecture.png)
-#### Selection Screen
+## Screenshots
+
 ![Selection sceen](https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt/blob/main/blockchain/src/assets/gitcoin1.png)
 #### Swap Rinkeby $ETH for $BADGER
 ![Flow of Build of Network](https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt/blob/main/blockchain/src/assets/gitcoin2.png)
