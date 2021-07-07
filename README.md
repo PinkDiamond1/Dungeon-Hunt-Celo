@@ -33,6 +33,8 @@
  **A lot more to come!**
 
 ## Architecture
+BADGER DUNGEON HUNT WORKFLOW:
+![Architecture](https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt/blob/main/blockchain/src/assets/final%20architecture.png)
 #### Selection Screen
 ![Selection sceen](https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt/blob/main/blockchain/src/assets/gitcoin1.png)
 #### Swap Rinkeby $ETH for $BADGER
