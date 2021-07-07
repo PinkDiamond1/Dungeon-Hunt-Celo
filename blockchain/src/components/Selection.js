@@ -7,7 +7,7 @@ export default function App() {
   return (
     <div className="main screen">
       <Carousel />
-      <div className="carousel-padding header">Welcome to the Dungeon Crawler</div>
+      <div className="carousel-padding header">Welcome to the Badger Dungeon Hunt</div>
       <div className="selection">
         <div
           className="select-story"
@@ -17,20 +17,20 @@ export default function App() {
           }}
         >
           <h4 className="text-header">Swap ETH/BADGER</h4>
-          <img className="dashboard-card-image" src="https://ipfs.io/ipfs/Qme7QyNBX1Q997Fp1bin8JK9KCpk5hyauae35Aosfp2VxV?filename=Angel.png"
+          <img className="dashboard-card-image" src="https://ipfs.io/ipfs/QmSraKiNmctuShFEqgGmLVamKuwZC6TFs26R27959ugExn?filename=badger-logo.png"
             alt="Angel" />
         </div>
-        {/* <div
+        <div
           className="select-story"
           onClick={() => {
             history.push("/StoryBooth");
             history.go(0);
           }}
         >
-          <h4 className="text-header">Vo</h4>
+          <h4 className="text-header">Shop Items</h4>
           <img className="dashboard-card-image" src="https://ipfs.io/ipfs/QmemTF7ziTVBFFpZzqYvSF3hdK5q6J2bZ85FYUr4mG2CUw?filename=Castle.png" 
           alt="Castel"  />
-        </div> */}
+        </div>
         <div
           className="select-story"
           onClick={() => {
