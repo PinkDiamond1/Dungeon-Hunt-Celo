@@ -15,6 +15,8 @@ Insert/Deposit $Badger and Play!
 ## 
 
 <p align="center">
+    <a href="https://docs.google.com/document/d/1A7ynf-cIYR4paPpyPCIEJ8aBifB7pugamHlvU33w2_I/edit?usp=sharing">DESIGN TEMPLATE</a>
+    ·
     <a href="https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt">View Docs</a>
     ·
     <a href="https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt/issues">Report Bug</a>
