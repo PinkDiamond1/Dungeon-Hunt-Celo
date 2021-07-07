@@ -18,7 +18,7 @@ export default function Routes() {
         <BrowserRouter history={history}>
             <UserContext.Provider value={{user, setUser}}>
             <Switch>
-                <Route path="/" exact component={Selection} />
+                <Route path="/selection" exact component={Selection} />
                 <Route path="/App" exact component={App} />
                 <Route path="/Upload" exact component={Upload} />
                 <Route path="/Login" exact component={Login} />
