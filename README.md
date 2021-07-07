@@ -1,5 +1,6 @@
 # BadgerFinance-Gitcoin-Dungeon-Hunt
 <h1 align="center">BADGER DUNGEON HUNT</h1>
+Insert/Deposit $Badger and Play!
 
 <p align="center">
   <a href="https://github.com/de-Dungeon-Crawler/BadgerFinance-Gitcoin-Dungeon-Hunt">
