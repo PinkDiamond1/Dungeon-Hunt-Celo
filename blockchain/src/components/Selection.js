@@ -38,7 +38,7 @@ export default function App() {
             history.go(0);
           }}
         >
-          <h4 className="text-header">Go to your Inventory</h4>
+          <h4 className="text-header">Go to NFT Inventory</h4>
           <img className="dashboard-card-image" src="https://ipfs.io/ipfs/QmccVpftx3x3W7GxTQGkJjXS6VyJCpgDgHagkAoJCsLnXM?filename=home.png"
             alt="home" />
         </div>
