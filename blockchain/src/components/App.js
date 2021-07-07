@@ -26,27 +26,27 @@ class App extends Component {
       trophies: [],
       loading: true
     };
-    // this.loadWeb3();
-    // this.loadBlockchainData();
+    this.loadWeb3();
+    this.loadBlockchainData();
   }
 
-  // async loadWeb3() {
-  //   if (window.ethereum) {
-  //     window.web3 = new Web3(window.ethereum)
-  //     await window.ethereum.enable()
-  //   }
-  //   else if (window.web3) {
-  //     window.web3 = new Web3(window.web3.currentProvider)
-  //   }
-  //   else {
-  //     window.alert("Non ethereum browser detected. You should consider trying Metamask")
-  //   }
-  // }
+  async loadWeb3() {
+    if (window.ethereum) {
+      window.web3 = new Web3(window.ethereum)
+      await window.ethereum.enable()
+    }
+    else if (window.web3) {
+      window.web3 = new Web3(window.web3.currentProvider)
+    }
+    else {
+      window.alert("Non ethereum browser detected. You should consider trying Metamask")
+    }
+  }
 
-  // async loadBlockchainData() {
-  //   const web3 = window.web3
-  //   const accounts = await web3.eth.getAccounts()
-  //   this.setState({ account: accounts[0] })
+  async loadBlockchainData() {
+    const web3 = window.web3
+    const accounts = await web3.eth.getAccounts()
+    this.setState({ account: accounts[0] })
 
   //   const networkId = await web3.eth.net.getId()
   //   const networkData = TropyChar.networks[networkId]
@@ -87,7 +87,7 @@ class App extends Component {
   //   } else {
   //     window.alert('Smart contract not deployed to the detected network')
   //   }
-  // }
+  }
 
 
   render() {
@@ -105,7 +105,7 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            The Dungeon Crawler
+            The Badger Dungeon Hunt
           </a>
           <ul className='navbar-nav px-3'>
             <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
