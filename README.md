@@ -19,7 +19,7 @@ We have used the following technologies for this project:
 
 ### Installation
 
-Following are the instructions for running the web application locally. First navigate to `RPG-Solidity-Game/blockchain/`
+Following are the instructions for running the web application locally. First navigate to `Dungeon-Hunt-Celo/blockchain/`
 
 1. Get a free API Key at [https://infura.io/](https://infura.io/) , and Etherscan
 2. Clone the repo
