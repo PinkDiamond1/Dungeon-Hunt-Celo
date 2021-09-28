@@ -1,40 +1,50 @@
+const {newKit} = require('@celo/contractkit')
+const Web3 = require('web3')
+const path = require('path')
 
-require('dotenv').config();
-const HDWalletProvider = require('@truffle/hdwallet-provider');
-const Web3 = require("web3");
-require('babel-polyfill');
-require('babel-register');
+// Connect to the desired network
+const web3 = new Web3('https://alfajores-forno.celo-testnet.org')
+// const kit = ContractKit.newKitFromWeb3(web3)
+const kit = newKit('https://celo-alfajores--rpc.datahub.figment.io/apikey/179a5b43bf60aaf44d23d11c202bb058/')
+// const kit = Kit.newKit('https://forno.celo.org') // mainnet endpoint
 
-//const mnemonic = process.env.MNEMONIC
-const PRIVATE_KEY = process.env.PRIVATE_KEY
-console.log('PRIVATE_KEY', PRIVATE_KEY);
-const Url = process.env.RPC_URL
+const getAccount = require('./utils/getAccount').getAccount
+
+async function awaitWrapper(){
+    let account = await getAccount()
+    console.log(`Account address: ${account.address}`)
+    kit.addAccount(account.privateKey)
+    console.log(kit.connection.web3.currentProvider)
+}
+
+awaitWrapper()
 
 module.exports = {
+  // See <http://truffleframework.com/docs/advanced/configuration>
+  // to customize your Truffle configuration!
+
+  // The following line will put the compiled contracts and associated info at ./client/contracts
+  contracts_build_directory: path.join(__dirname, "client/contracts"),
+
   networks: {
-    cldev: {
-      host: '127.0.0.1',
-      port: 8545,
-      network_id: '*',
+    // Use the development network if you are using @celo/ganache-cli
+    // https://www.npmjs.com/package/@celo/ganache-cli
+    development: {
+     host: "127.0.0.1",
+     port: 8545,
+     network_id: "*",
     },
-    ganache: {
-      host: '127.0.0.1',
-      port: 7545,
-      network_id: '*',
+    alfajores: {
+      networkCheckTimeout: 100000,
+      provider: kit.connection.web3.currentProvider,
+      network_id: 44787
     },
-    rinkeby: {
-      provider: function () {
-        return new HDWalletProvider(PRIVATE_KEY, Url)
-      },
-      network_id: "4",
-      networkCheckTimeout: 1000000,
-      timeoutBlocks: 200,
-      skipDryRun: true
-      // addressIndex: 2
+    mainnet: {
+      provider: kit.web3.currentProvider,
+      network_id: 42220
     }
+    
   },
-  contracts_directory: './src/contracts/',
-  contracts_build_directory: './src/abis/',
   compilers: {
     solc: {
       version: '0.8.0+commit.c7dfd78e',
@@ -44,10 +54,18 @@ module.exports = {
       }
     }
   },
+  contracts_directory: './src/contracts/',
+  contracts_build_directory: './src/abis/',
   api_keys: {
     etherscan: process.env.ETHERSCAN_API_KEY,
   },
   plugins: [
     'truffle-plugin-verify'
-  ]
-}
+  ],
+  kit,
+  web3
+
+};
+
+
+
