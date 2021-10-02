@@ -3,8 +3,8 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-contract BadgerToken is ERC20 {
-    constructor() ERC20("Badger", "DGN") { } 
+contract DungeonToken is ERC20 {
+    constructor() ERC20("Dungeon", "DGN") { } 
 
     function faucet() public {
         _mint(msg.sender, 10e18);

@@ -1,5 +1,5 @@
-const BadgerToken = artifacts.require("BadgerToken");
+const DungeonToken = artifacts.require("DungeonToken");
 
 module.exports = function (deployer) {
-    deployer.deploy(BadgerToken);
+    deployer.deploy(DungeonToken);
 };

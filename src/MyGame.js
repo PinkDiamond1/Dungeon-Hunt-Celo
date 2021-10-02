@@ -124,9 +124,11 @@ import Tradecomp from './treasure/tradecomp'
 import Torchburn from './treasure/torchburn'
 import Walltorch from './treasure/walltorch'
 
-import Web3 from 'web3'
+// import Web3 from 'web3'
 import DungeonToken from '../blockchain/src/abis/DungeonToken.json'
-import TropyChar from '../blockchain/src/abis/TrophyChar.json'
+// import TropyChar from '../blockchain/src/abis/TrophyChar.json'
+import { web3 } from '../blockchain/truffle-config';
+
 
 
 var cursors
@@ -152,6 +154,8 @@ var angel_health = 5
 var tradecomp
 
 let speed = 150
+const Web3 = require("web3")
+const ContractKit = require("@celo/contractkit")
 
 export default class MyGame extends Phaser.Scene {
     constructor() {
@@ -1368,88 +1372,109 @@ export default class MyGame extends Phaser.Scene {
 const sendAlert = () => {
     alert('hello World')
 }
-
+let kit 
 const loadWeb3 = () => {
     //alert('Connecting Wallet');
 
-    if (window.ethereum) {
-        window.web3 = new Web3(window.ethereum)
-        window.ethereum.enable()
-    }
-    else if (window.web3) {
-        window.web3 = new Web3(window.web3.currentProvider)
-    }
-    else {
-        window.alert("Non ethereum browser detected. You should consider trying Metamask")
-    }
+    // if (window.celo) {
+    //     window.web3 = new Web3(window.celo)
+    //     window.celo.enable()
+    // }
+    // else if (window.web3) {
+    //     window.web3 = new Web3(window.web3.currentProvider)
+    // }
+    // else {
+    //     window.alert("Non ethereum browser detected. You should consider trying Metamask or Celo Extension")
+    // }
+    if (window.celo) {
+        try {
+          window.celo.enable();
+          const web3 = new Web3(window.celo);
+          kit = ContractKit.newKitFromWeb3(web3);
+          const accounts =  kit.web3.eth.getAccounts();
+          this.setState({ account: accounts[0] });
+        } catch (error) {
+          console.log(`${error}.`);
+        }
+      } else {
+        console.log("Please install the CeloExtensionWallet.");
+        window.alert(
+          "Celo Extension Wallet not installed! Please install Celo Extension Wallet"
+        );
+      }
 }
 
 let contract
+// let kit
 const loadBlockchainData = () => {
-    const web3 = window.web3
-    const networkId = web3.eth.net.getId()
-    const networkData = DungeonToken.networks[4]
-
+    const web3 = new Web3(window.celo)
+    kit = ContractKit.newKitFromWeb3(web3)
+    const networkId = kit.web3.eth.net.getId();
+    const networkData = HashImage.networks[networkId];
     if (networkData) {
-        const abi = []
-        const address = networkData.address
-        contract = new web3.eth.Contract(DungeonToken.abi, address)
+        contract = new kit.web3.eth.Contract(
+            DungeonToken.abi,
+            networkData.address
+        )
+        // const abi = []
+        // const address = networkData.address
+        // contract = new web3.eth.Contract(DungeonToken.abi, address)
 
     } else {
-        window.alert('Smart contract not deployed to the detected network')
+        window.alert('Smart contract not deployed to the Celo Alfajores test network')
     }
 }
 
 const mintReward = () => {
     loadBlockchainData()
 
-    const web3 = window.web3
+    const web3 = new web3(window.celo)
 
-    const accounts = web3.eth.getAccounts()
+    const accounts = kit.web3.eth.getAccounts()
     accounts.then(data => {
         console.log('data', data);
         contract.methods.reward(data[0]).send({ from: data[0] })
     })
 }
 
-const usersNFTCount = () => {
-    const networkData = TropyChar.networks[4]
-    const address = networkData.address
-    let NFTContract = new web3.eth.Contract(TropyChar.abi, address)
+// const usersNFTCount = () => {
+//     const networkData = TropyChar.networks[4]
+//     const address = networkData.address
+//     let NFTContract = new web3.eth.Contract(TropyChar.abi, address)
 
-    const accounts = web3.eth.getAccounts()
-    accounts.then(data => {
-        console.log('data', data);
-        let nftCount = NFTContract.methods.usersNftCount(data[0]).call()
-        nftCount.then(nftData => {
-            console.log(nftData);
-        })
-        // console.log('nftCount', nftCount.toString());
-        NFTContract.methods.requestNewRandomTrophy(
-            1,
-            'sagar',
-            1,
-            data[0]
-        ).send({ from: data[0] })
-    })
-}
+//     const accounts = web3.eth.getAccounts()
+//     accounts.then(data => {
+//         console.log('data', data);
+//         let nftCount = NFTContract.methods.usersNftCount(data[0]).call()
+//         nftCount.then(nftData => {
+//             console.log(nftData);
+//         })
+//         // console.log('nftCount', nftCount.toString());
+//         NFTContract.methods.requestNewRandomTrophy(
+//             1,
+//             'sagar',
+//             1,
+//             data[0]
+//         ).send({ from: data[0] })
+//     })
+// }
 
-const rewardNFT = () => {
-    const networkData = TropyChar.networks[4]
-    const address = networkData.address
-    let NFTContract = new web3.eth.Contract(TropyChar.abi, address)
+// const rewardNFT = () => {
+//     const networkData = TropyChar.networks[4]
+//     const address = networkData.address
+//     let NFTContract = new web3.eth.Contract(TropyChar.abi, address)
 
-    const accounts = web3.eth.getAccounts()
-    accounts.then(data => {
-        console.log('data', data);
-        NFTContract.methods.requestNewRandomTrophy(
-            1,
-            'sagar',
-            1,
-            data[0]
-        ).send({ from: data[0] })
-    })
-}
+//     const accounts = web3.eth.getAccounts()
+//     accounts.then(data => {
+//         console.log('data', data);
+//         NFTContract.methods.requestNewRandomTrophy(
+//             1,
+//             'sagar',
+//             1,
+//             data[0]
+//         ).send({ from: data[0] })
+//     })
+// }
 
 // const config = {
 //     type: Phaser.AUTO,

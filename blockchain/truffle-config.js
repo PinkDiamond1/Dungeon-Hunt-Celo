@@ -5,7 +5,7 @@ const path = require('path')
 // Connect to the desired network
 const web3 = new Web3('https://alfajores-forno.celo-testnet.org')
 // const kit = ContractKit.newKitFromWeb3(web3)
-const kit = newKit('https://celo-alfajores--rpc.datahub.figment.io/apikey/179a5b43bf60aaf44d23d11c202bb058/')
+const kit = newKit('https://celo-alfajores--rpc.datahub.figment.io/apikey/b3100080a0d7823d164802b6033bec8d/')
 // const kit = Kit.newKit('https://forno.celo.org') // mainnet endpoint
 
 const getAccount = require('./utils/getAccount').getAccount
@@ -24,7 +24,7 @@ module.exports = {
   // to customize your Truffle configuration!
 
   // The following line will put the compiled contracts and associated info at ./client/contracts
-  contracts_build_directory: path.join(__dirname, "client/contracts"),
+  contracts_build_directory: path.join(__dirname, "src/abis"),
 
   networks: {
     // Use the development network if you are using @celo/ganache-cli
