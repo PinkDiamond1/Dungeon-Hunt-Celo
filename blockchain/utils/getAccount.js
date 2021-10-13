@@ -10,6 +10,7 @@ const path = require('path')
 var web3 = new Web3();
 
 const filePath = path.join(__dirname, '../.secret');
+console.log(filePath)
 
 function getAccount() {
     return new Promise(resolve => {
@@ -30,6 +31,7 @@ function getAccount() {
         }
     })
 }
+
 
 module.exports = {
     getAccount

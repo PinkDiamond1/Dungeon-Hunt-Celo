@@ -1372,7 +1372,8 @@ export default class MyGame extends Phaser.Scene {
 const sendAlert = () => {
     alert('hello World')
 }
-let kit 
+let kit // wrappper
+// network 
 const loadWeb3 = () => {
     //alert('Connecting Wallet');
 
@@ -1390,7 +1391,7 @@ const loadWeb3 = () => {
         try {
           window.celo.enable();
           const web3 = new Web3(window.celo);
-          kit = ContractKit.newKitFromWeb3(web3);
+          kit = ContractKit.newKitFromWeb3(web3); // extra for celo 
           const accounts =  kit.web3.eth.getAccounts();
           this.setState({ account: accounts[0] });
         } catch (error) {
@@ -1409,9 +1410,9 @@ let contract
 const loadBlockchainData = () => {
     const web3 = new Web3(window.celo)
     kit = ContractKit.newKitFromWeb3(web3)
-    const networkId = kit.web3.eth.net.getId();
-    const networkData = HashImage.networks[networkId];
-    if (networkData) {
+    const networkId = kit.web3.eth.net.getId(); // 44787   
+    const networkData = DungeonToken.networks[networkId]; //44787
+    if (networkData) { //conected to 44787
         contract = new kit.web3.eth.Contract(
             DungeonToken.abi,
             networkData.address
@@ -1425,8 +1426,10 @@ const loadBlockchainData = () => {
     }
 }
 
+
+// collecting chests 
 const mintReward = () => {
-    loadBlockchainData()
+    loadBlockchainData() //confirmation you are on Celo 
 
     const web3 = new web3(window.celo)
 
