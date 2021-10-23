@@ -124,9 +124,12 @@ import Tradecomp from './treasure/tradecomp'
 import Torchburn from './treasure/torchburn'
 import Walltorch from './treasure/walltorch'
 
+
 import Web3 from 'web3'
 import DungeonToken from '../blockchain/src/abis/DungeonToken.json'
-import TropyChar from '../blockchain/src/abis/TrophyChar.json'
+// import TropyChar from '../blockchain/src/abis/TrophyChar.json'
+// const Web3 = require("web3");
+const ContractKit = require("@celo/contractkit");
 
 
 var cursors
@@ -157,8 +160,8 @@ export default class MyGame extends Phaser.Scene {
     constructor() {
         super();
         loadWeb3()
-        //loadBlockchainData()
-        usersNFTCount()
+        loadBlockchainData()
+        // usersNFTCount()
     }
 
     preload() {
@@ -264,10 +267,10 @@ export default class MyGame extends Phaser.Scene {
         faune = this.physics.add.sprite(128, 128, 'faune', 'walk-down-3.png')
         faune.body.setSize(faune.width * 0.5, faune.height * 0.8)
 
-        //tradecomp = this.physics.add.image(160,150,'tradecomp')
+        tradecomp = this.physics.add.image(160,150,'tradecomp')
 
-        // this.dungeonsound = this.sound.add('dungeonsound')
-        // this.dungeonsound.play();
+        this.dungeonsound = this.sound.add('dungeonsound')
+        this.dungeonsound.play();
 
         const chainlinks = this.physics.add.group({
             classType: Chainlink,
@@ -1385,15 +1388,19 @@ const loadWeb3 = () => {
 }
 
 let contract
+let kit
 const loadBlockchainData = () => {
-    const web3 = window.web3
+    const web3 = new Web3(window.ethereum)
+    kit = ContractKit.newKitFromWeb3(web3);
     const networkId = web3.eth.net.getId()
-    const networkData = DungeonToken.networks[4]
+    
+    const networkData = DungeonToken.networks["44787"]
+    console.log(networkId)
 
     if (networkData) {
         const abi = []
         const address = networkData.address
-        contract = new web3.eth.Contract(DungeonToken.abi, address)
+        contract = new kit.web3.eth.Contract(DungeonToken.abi, address)
 
     } else {
         window.alert('Smart contract not deployed to the detected network')
@@ -1403,53 +1410,54 @@ const loadBlockchainData = () => {
 const mintReward = () => {
     loadBlockchainData()
 
-    const web3 = window.web3
+    const web3 = new Web3(window.ethereum)
+    kit = ContractKit.newKitFromWeb3(web3);
 
-    const accounts = web3.eth.getAccounts()
+    const accounts = kit.web3.eth.getAccounts()
     accounts.then(data => {
         console.log('data', data);
         contract.methods.reward(data[0]).send({ from: data[0] })
     })
 }
 
-const usersNFTCount = () => {
-    const networkData = TropyChar.networks[4]
-    const address = networkData.address
-    let NFTContract = new web3.eth.Contract(TropyChar.abi, address)
+// const usersNFTCount = () => {
+//     const networkData = TropyChar.networks[4]
+//     const address = networkData.address
+//     let NFTContract = new web3.eth.Contract(TropyChar.abi, address)
 
-    const accounts = web3.eth.getAccounts()
-    accounts.then(data => {
-        console.log('data', data);
-        let nftCount = NFTContract.methods.usersNftCount(data[0]).call()
-        nftCount.then(nftData => {
-            console.log(nftData);
-        })
-        // console.log('nftCount', nftCount.toString());
-        NFTContract.methods.requestNewRandomTrophy(
-            1,
-            'sagar',
-            1,
-            data[0]
-        ).send({ from: data[0] })
-    })
-}
+//     const accounts = web3.eth.getAccounts()
+//     accounts.then(data => {
+//         console.log('data', data);
+//         let nftCount = NFTContract.methods.usersNftCount(data[0]).call()
+//         nftCount.then(nftData => {
+//             console.log(nftData);
+//         })
+//         // console.log('nftCount', nftCount.toString());
+//         NFTContract.methods.requestNewRandomTrophy(
+//             1,
+//             'sagar',
+//             1,
+//             data[0]
+//         ).send({ from: data[0] })
+//     })
+// }
 
-const rewardNFT = () => {
-    const networkData = TropyChar.networks[4]
-    const address = networkData.address
-    let NFTContract = new web3.eth.Contract(TropyChar.abi, address)
+// const rewardNFT = () => {
+//     // const networkData = TropyChar.networks[4]
+//     const address = networkData.address
+//     let NFTContract = new web3.eth.Contract(TropyChar.abi, address)
 
-    const accounts = web3.eth.getAccounts()
-    accounts.then(data => {
-        console.log('data', data);
-        NFTContract.methods.requestNewRandomTrophy(
-            1,
-            'sagar',
-            1,
-            data[0]
-        ).send({ from: data[0] })
-    })
-}
+//     const accounts = web3.eth.getAccounts()
+//     accounts.then(data => {
+//         console.log('data', data);
+//         NFTContract.methods.requestNewRandomTrophy(
+//             1,
+//             'sagar',
+//             1,
+//             data[0]
+//         ).send({ from: data[0] })
+//     })
+// }
 
 // const config = {
 //     type: Phaser.AUTO,

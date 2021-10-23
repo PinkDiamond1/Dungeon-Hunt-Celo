@@ -1,7 +1,24 @@
 const webpack = require("webpack");
 const path = require("path");
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+// var config = Encore.getWebpackConfig();
+// config.node = { fs: 'empty' };
+// config.resolve={
+//     fallback: {
+//         "fs": false,
+//         "tls": false,
+//         "net": false,
+//         "path": false,
+//         "zlib": false,
+//         "http": false,
+//         "https": false,
+//         "stream": false,
+//         "crypto": false,
+//         "crypto-browserify": require.resolve('crypto-browserify'), //if you want to use this module also don't forget npm i crypto-browserify 
+//     }
+// }
 
 module.exports = {
   mode: "development",
@@ -25,7 +42,22 @@ module.exports = {
       }
     ]
   },
+  resolve: {
+    fallback: {
+    "fs": false,
+    "tls": false,
+    "net": false,
+    "path": false,
+    "zlib": false,
+    "http": false,
+    "https": false,
+    "stream": false,
+    "crypto": false,
+    "crypto-browserify": require.resolve('crypto-browserify'), //if you want to use this module also don't forget npm i crypto-browserify 
+  }
+  },
   plugins: [
+    new NodePolyfillPlugin(),
     new CleanWebpackPlugin({
       root: path.resolve(__dirname, "../")
     }),
@@ -36,5 +68,5 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html"
     })
-  ]
+  ],
 };
