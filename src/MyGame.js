@@ -131,9 +131,6 @@ import DungeonToken from '../blockchain/src/abis/DungeonToken.json'
 // const Web3 = require("web3");
 const ContractKit = require("@celo/contractkit");
 
-// const web3 = new Web3('https://alfajores-forno.celo-testnet.org')
-// const kit = ContractKit.newKitFromWeb3(web3)
-// let kit;
 
 var cursors
 var faune, lizard
@@ -1393,12 +1390,12 @@ const loadWeb3 = () => {
 let contract
 let kit
 const loadBlockchainData = () => {
-    const web3 = window.web3
+    const web3 = new Web3(window.ethereum)
     kit = ContractKit.newKitFromWeb3(web3);
-    const networkId = kit.web3.eth.net.getId()
+    const networkId = web3.eth.net.getId()
     
-    const networkData = DungeonToken.networks[networkId]
-    console.log(networkData)
+    const networkData = DungeonToken.networks["44787"]
+    console.log(networkId)
 
     if (networkData) {
         const abi = []
@@ -1413,9 +1410,10 @@ const loadBlockchainData = () => {
 const mintReward = () => {
     loadBlockchainData()
 
-    const web3 = window.web3
+    const web3 = new Web3(window.ethereum)
+    kit = ContractKit.newKitFromWeb3(web3);
 
-    const accounts = web3.eth.getAccounts()
+    const accounts = kit.web3.eth.getAccounts()
     accounts.then(data => {
         console.log('data', data);
         contract.methods.reward(data[0]).send({ from: data[0] })
