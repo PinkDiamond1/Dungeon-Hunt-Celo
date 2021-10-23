@@ -124,12 +124,16 @@ import Tradecomp from './treasure/tradecomp'
 import Torchburn from './treasure/torchburn'
 import Walltorch from './treasure/walltorch'
 
-// import Web3 from 'web3'
+
+import Web3 from 'web3'
 import DungeonToken from '../blockchain/src/abis/DungeonToken.json'
 // import TropyChar from '../blockchain/src/abis/TrophyChar.json'
-import { web3 } from '../blockchain/truffle-config';
+// const Web3 = require("web3");
+const ContractKit = require("@celo/contractkit");
 
-
+// const web3 = new Web3('https://alfajores-forno.celo-testnet.org')
+// const kit = ContractKit.newKitFromWeb3(web3)
+// let kit;
 
 var cursors
 var faune, lizard
@@ -154,15 +158,13 @@ var angel_health = 5
 var tradecomp
 
 let speed = 150
-const Web3 = require("web3")
-const ContractKit = require("@celo/contractkit")
 
 export default class MyGame extends Phaser.Scene {
     constructor() {
         super();
         loadWeb3()
-        //loadBlockchainData()
-        usersNFTCount()
+        loadBlockchainData()
+        // usersNFTCount()
     }
 
     preload() {
@@ -268,10 +270,10 @@ export default class MyGame extends Phaser.Scene {
         faune = this.physics.add.sprite(128, 128, 'faune', 'walk-down-3.png')
         faune.body.setSize(faune.width * 0.5, faune.height * 0.8)
 
-        //tradecomp = this.physics.add.image(160,150,'tradecomp')
+        tradecomp = this.physics.add.image(160,150,'tradecomp')
 
-        // this.dungeonsound = this.sound.add('dungeonsound')
-        // this.dungeonsound.play();
+        this.dungeonsound = this.sound.add('dungeonsound')
+        this.dungeonsound.play();
 
         const chainlinks = this.physics.add.group({
             classType: Chainlink,
@@ -1372,68 +1374,48 @@ export default class MyGame extends Phaser.Scene {
 const sendAlert = () => {
     alert('hello World')
 }
-let kit // wrappper
-// network 
+
 const loadWeb3 = () => {
     //alert('Connecting Wallet');
 
-    // if (window.celo) {
-    //     window.web3 = new Web3(window.celo)
-    //     window.celo.enable()
-    // }
-    // else if (window.web3) {
-    //     window.web3 = new Web3(window.web3.currentProvider)
-    // }
-    // else {
-    //     window.alert("Non ethereum browser detected. You should consider trying Metamask or Celo Extension")
-    // }
-    if (window.celo) {
-        try {
-          window.celo.enable();
-          const web3 = new Web3(window.celo);
-          kit = ContractKit.newKitFromWeb3(web3); // extra for celo 
-          const accounts =  kit.web3.eth.getAccounts();
-          this.setState({ account: accounts[0] });
-        } catch (error) {
-          console.log(`${error}.`);
-        }
-      } else {
-        console.log("Please install the CeloExtensionWallet.");
-        window.alert(
-          "Celo Extension Wallet not installed! Please install Celo Extension Wallet"
-        );
-      }
-}
-
-let contract
-// let kit
-const loadBlockchainData = () => {
-    const web3 = new Web3(window.celo)
-    kit = ContractKit.newKitFromWeb3(web3)
-    const networkId = kit.web3.eth.net.getId(); // 44787   
-    const networkData = DungeonToken.networks[networkId]; //44787
-    if (networkData) { //conected to 44787
-        contract = new kit.web3.eth.Contract(
-            DungeonToken.abi,
-            networkData.address
-        )
-        // const abi = []
-        // const address = networkData.address
-        // contract = new web3.eth.Contract(DungeonToken.abi, address)
-
-    } else {
-        window.alert('Smart contract not deployed to the Celo Alfajores test network')
+    if (window.ethereum) {
+        window.web3 = new Web3(window.ethereum)
+        window.ethereum.enable()
+    }
+    else if (window.web3) {
+        window.web3 = new Web3(window.web3.currentProvider)
+    }
+    else {
+        window.alert("Non ethereum browser detected. You should consider trying Metamask")
     }
 }
 
+let contract
+let kit
+const loadBlockchainData = () => {
+    const web3 = window.web3
+    kit = ContractKit.newKitFromWeb3(web3);
+    const networkId = kit.web3.eth.net.getId()
+    
+    const networkData = DungeonToken.networks[networkId]
+    console.log(networkData)
 
-// collecting chests 
+    if (networkData) {
+        const abi = []
+        const address = networkData.address
+        contract = new kit.web3.eth.Contract(DungeonToken.abi, address)
+
+    } else {
+        window.alert('Smart contract not deployed to the detected network')
+    }
+}
+
 const mintReward = () => {
-    loadBlockchainData() //confirmation you are on Celo 
+    loadBlockchainData()
 
-    const web3 = new web3(window.celo)
+    const web3 = window.web3
 
-    const accounts = kit.web3.eth.getAccounts()
+    const accounts = web3.eth.getAccounts()
     accounts.then(data => {
         console.log('data', data);
         contract.methods.reward(data[0]).send({ from: data[0] })
@@ -1463,7 +1445,7 @@ const mintReward = () => {
 // }
 
 // const rewardNFT = () => {
-//     const networkData = TropyChar.networks[4]
+//     // const networkData = TropyChar.networks[4]
 //     const address = networkData.address
 //     let NFTContract = new web3.eth.Contract(TropyChar.abi, address)
 
