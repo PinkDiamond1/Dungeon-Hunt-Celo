@@ -37,7 +37,7 @@ import torchburnJson from './assets/torch_burn.json'
 import torchburnPng from './assets/torch_burn.png'
 import walltorchJson from './assets/torch.json'
 import walltorchPng from './assets/torch.png'
-import chainlinkPng from './assets/chainlink.png'
+import chainlinkPng from './assets/download_empty_resize.png'
 import weapon from './assets/weapon_knife.png'
 import chestPng from './assets/chest.png'
 import chestJson from './assets/chest.json'
@@ -879,7 +879,7 @@ export default class MyGame extends Phaser.Scene {
         this.coinsound.play();
 
         if (obj2.anims.currentAnim.key !== 'chest-empty-open') {
-            coin = coin + 10
+            coin = coin + 4
             mintReward()
             console.log('coinCOunt', coin);
             sceneEvents.emit('player-coin-mint', coin)

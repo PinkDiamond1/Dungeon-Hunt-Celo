@@ -886,7 +886,7 @@ export default class LevelTwo extends Phaser.Scene{
         this.coinsound.play();
 
         if (obj2.anims.currentAnim.key !== 'chest-empty-open') {
-            coin = coin + 10
+            coin = coin + 4
             // mintReward()
             console.log('coinCOunt', coin);
             sceneEvents.emit('player-coin-mint', coin)
