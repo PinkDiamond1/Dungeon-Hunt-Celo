@@ -7,8 +7,8 @@ import LevelTwo from './LevelTwo/index'
 const config = {
     type: Phaser.AUTO,
     parent: 'phaser-example',
-    width: 700,
-    height: 350,
+    width: 1100,
+    height: 650,
     scene: [Level1, Heart, Coin],
     physics: {
         default: 'arcade',
@@ -18,8 +18,14 @@ const config = {
         }
     },
     scale: {
-        zoom: 2
-    },
+        zoom: 1,
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+      },
+      backgroundColor: "#000000",
+    // scale: {
+    //     zoom: 2
+    // },
 };
 
 export default new Phaser.Game(config)
